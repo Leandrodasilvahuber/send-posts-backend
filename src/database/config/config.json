@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "P4stelina",
+    "database": "js-api",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "P4stelina",
+    "database": "js-api",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "P4stelina",
+    "database": "js-api",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
