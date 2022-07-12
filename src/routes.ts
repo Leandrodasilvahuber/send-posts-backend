@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { JWTProvider } from './providers/implementations/JWTProvider'
-import { createUserController } from './useCases/createUser/index'
-import { loginController } from './useCases/login/index'
+// import { createUserController } from './useCases/createUser/index'
+// import { loginController } from './useCases/login/index'
 // import { createPostController } from "./useCases/createPost/index"
 
 const jwtProvider = new JWTProvider()
