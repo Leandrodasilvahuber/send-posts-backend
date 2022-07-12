@@ -20,6 +20,7 @@ router.get('/posts', jwtProvider.verifyJWT, (request, response) => {
   response.send('<h1>Not Implemeted</h1>')
 })
 
+/*
 router.post('/login', (request, response, next) => {
   return loginController.handle(request, response)
 })
@@ -27,5 +28,6 @@ router.post('/login', (request, response, next) => {
 router.post('/users', (request, response) => {
   return createUserController.handle(request, response)
 })
+*/
 
 export { router }
