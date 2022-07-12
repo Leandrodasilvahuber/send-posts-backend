@@ -1,2 +1,2 @@
 import { app } from './api'
-app.listen(3333)
+app.listen(process.env.PORT || process.env.LOCAL_PORT)
