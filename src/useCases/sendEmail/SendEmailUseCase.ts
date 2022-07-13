@@ -27,7 +27,7 @@ export class SendEmailUseCase implements ISendEmailUseCase {
   }
 
   private async urlGenerate (email: string) {
-    const port = process.env.PORT || process.env.LOCAL_PORT
+    const port = process.env.PORT
     const hash = this.hashProvider.makesha256(email)
     return `${process.env.URL_API}:${port}/users/validate/${hash}`
   }
