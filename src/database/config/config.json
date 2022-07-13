@@ -3,21 +3,21 @@
     "username": "b3c5dbc7bbb591",
     "password": "20ed423a",
     "database": "heroku_91ec655a7c97a70",
-    "host": "20ed423a@us-cdbr-east-06.cleardb.net",
+    "host": "us-cdbr-east-06.cleardb.net",
     "dialect": "mysql"
   },
   "test": {
     "username": "b3c5dbc7bbb591",
     "password": "20ed423a",
     "database": "heroku_91ec655a7c97a70",
-    "host": "20ed423a@us-cdbr-east-06.cleardb.net",
+    "host": "us-cdbr-east-06.cleardb.net",
     "dialect": "mysql"
   },
   "production": {
     "username": "b3c5dbc7bbb591",
     "password": "20ed423a",
     "database": "heroku_91ec655a7c97a70",
-    "host": "20ed423a@us-cdbr-east-06.cleardb.net",
+    "host": "us-cdbr-east-06.cleardb.net",
     "dialect": "mysql"
   }
 }
