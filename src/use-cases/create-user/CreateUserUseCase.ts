@@ -1,16 +1,23 @@
-/* eslint-disable no-useless-constructor */
-import { UserMap } from '../../useCases/createUser/UserMap'
+import { UserMap } from './UserMap'
 import { UserDTO } from './UserDTO'
 import { IUsersRepository } from '../../repositories/IUsersRepository'
 import { IHashProvider } from '../../providers/IhashProvider'
-import { ISendEmailUseCase } from '../sendEmail/ISendEmailUseCase'
+import { ISendEmailUseCase } from '../send-email/ISendEmailUseCase'
 
 export class CreateUserUseCase {
+  private usersRepository: IUsersRepository
+  private sendEmailUseCase: ISendEmailUseCase
+  private hashProvider: IHashProvider
+
   constructor (
-    private usersRepository: IUsersRepository,
-    private sendEmailUseCase: ISendEmailUseCase,
-    private hashProvider: IHashProvider
-  ) {}
+    usersRepository: IUsersRepository,
+    sendEmailUseCase: ISendEmailUseCase,
+    hashProvider: IHashProvider
+  ) {
+    this.usersRepository = usersRepository
+    this.sendEmailUseCase = sendEmailUseCase
+    this.hashProvider = hashProvider
+  }
 
   async execute (data: any): Promise<UserDTO> {
     const userAlreadyExists = await this.usersRepository.getUserByEmail(

@@ -2,7 +2,7 @@ import { UsersRepository } from '../../repositories/implementations/UsersReposit
 import { CreateUserUseCase } from './CreateUserUseCase'
 import { CreateUserController } from './CreateUserController'
 import { DatabaseProvider } from '../../providers/implementations/DatabaseProvider'
-import { sendEmailUseCase } from '../sendEmail/index'
+import { sendEmailUseCase } from '../send-email/index'
 import { HashProvider } from '../../providers/implementations/HashProvider'
 
 const connection = new DatabaseProvider().getConnection()

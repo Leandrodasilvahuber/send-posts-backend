@@ -1,9 +1,12 @@
-/* eslint-disable no-useless-constructor */
-import { UserMap } from '../../useCases/createUser/UserMap'
+import { UserMap } from '../../use-cases/create-user/UserMap'
 import { IUsersRepository } from '../IUsersRepository'
 
 export class UsersRepository implements IUsersRepository {
-  constructor (private model: any) {}
+  private model: any
+
+  constructor (model: any) {
+    this.model = model
+  }
 
   public async save (user: any): Promise<void> {
     const data = UserMap.toPersistence(user)

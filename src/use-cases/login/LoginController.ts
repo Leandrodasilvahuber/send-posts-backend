@@ -1,9 +1,12 @@
-/* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
 import { LoginUseCase } from './LoginUseCase'
 
 export class LoginController {
-  constructor (private loginUseCase: LoginUseCase) { }
+  private loginUseCase: LoginUseCase
+
+  constructor (loginUseCase: LoginUseCase) {
+    this.loginUseCase = loginUseCase
+  }
 
   async handle (request: Request, response: Response): Promise<Response> {
     try {
