@@ -1,13 +1,21 @@
+/* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { CreateUserUseCase } from './CreateUserUseCase'
+import { NextFunction } from 'express-serve-static-core'
+import CreateUserRequestRules from '../../request-rules/CreateUserRequestRules'
+import CreateUserUseCase from './CreateUserUseCase'
 
-export class CreateUserController {
-  // eslint-disable-next-line no-useless-constructor
-  constructor (private createUserUseCase: CreateUserUseCase) {}
+export default class CreateUserController {
+  constructor (
+    private createUserUseCase: CreateUserUseCase,
+    private createUserRequestRules: CreateUserRequestRules
+  ) {}
 
-  async handle (request: Request, response: Response): Promise<Response> {
+  async handle (request: Request, response: Response, next: NextFunction): Promise<Response> {
     try {
       const { name, email, password } = request.body
+
+      this.createUserRequestRules.validate({ name, email, password })
+
       const user = await this.createUserUseCase.execute({
         name,
         email,
@@ -15,9 +23,7 @@ export class CreateUserController {
       })
       return response.status(201).send(user)
     } catch (err) {
-      return response.status(400).send({
-        message: err.message || 'Unexpected error.'
-      })
+      next(err)
     }
   }
 }

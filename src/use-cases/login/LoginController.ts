@@ -1,22 +1,25 @@
+/* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { LoginUseCase } from './LoginUseCase'
+import LoginRequestRules from '../../request-rules/LoginRequestRules'
+import LoginUseCase from './LoginUseCase'
 
-export class LoginController {
-  private loginUseCase: LoginUseCase
+export default class LoginController {
+  constructor (
+    private loginUseCase: LoginUseCase,
+    private loginRequestRules: LoginRequestRules
+  ) {}
 
-  constructor (loginUseCase: LoginUseCase) {
-    this.loginUseCase = loginUseCase
-  }
-
-  async handle (request: Request, response: Response): Promise<Response> {
+  async handle (request: Request, response: Response, next): Promise<Response> {
     try {
       const { email, password } = request.body
+
+      this.loginRequestRules.validate({ email, password })
+
       const token = await this.loginUseCase.execute({ email, password })
+
       return response.json({ auth: true, token })
     } catch (err) {
-      return response.status(400).send({
-        message: err.message || 'Unexpected error.'
-      })
+      next(err)
     }
   }
 }

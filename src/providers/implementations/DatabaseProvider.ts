@@ -1,7 +1,7 @@
 import userModel from '../../database/models/user'
-import { IDatabaseProvider } from '../IDatabaseProvider'
+import IDatabaseProvider from '../IDatabaseProvider'
 
-export class DatabaseProvider implements IDatabaseProvider {
+export default class DatabaseProvider implements IDatabaseProvider {
   private connection: any
   private dialect: string = 'mysql'
 

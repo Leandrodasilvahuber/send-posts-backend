@@ -1,7 +1,7 @@
-import { User } from './User'
-import { UserDTO } from './UserDTO'
+import User from './User'
+import UserDTO from './UserDTO'
 
-export class UserMap {
+export default class UserMap {
   public static toDomain (raw: any): User {
     return new User(raw.id, raw.name, raw.email, raw.password)
   }

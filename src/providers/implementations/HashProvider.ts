@@ -1,6 +1,6 @@
-import { IHashProvider } from '../IhashProvider'
+import IHashProvider from '../IhashProvider'
 
-export class HashProvider implements IHashProvider {
+export default class HashProvider implements IHashProvider {
   private shajs = require('sha.js')
 
   makesha256 (parammeter: any): string {

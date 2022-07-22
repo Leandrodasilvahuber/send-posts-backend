@@ -1,12 +1,16 @@
-const jwt = require('jsonwebtoken')
+export default class JWTProvider {
+  private jwt
 
-export class JWTProvider {
+  constructor () {
+    this.jwt = require('jsonwebtoken')
+  }
+
   public verifyJWT (request, response, next): void {
     const token = request.headers['x-access-token']
 
     if (!token) throw new Error('No token provided.')
 
-    jwt.verify(token, process.env.JWT_SECRET, function (err, decoded) {
+    this.jwt.verify(token, process.env.JWT_SECRET, function (err, decoded) {
       if (err) throw new Error('Failed to authenticate token.')
 
       request.userId = decoded.id
@@ -16,7 +20,7 @@ export class JWTProvider {
   }
 
   public makeToken (id: number): string {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
+    return this.jwt.sign({ id }, process.env.JWT_SECRET, {
       expiresIn: 600 // expires in 10 min
     })
   }

@@ -1,4 +1,4 @@
-export interface IDatabaseProvider {
+export default interface IDatabaseProvider {
   dataTypes: any
   model: any
   Sequelize: any

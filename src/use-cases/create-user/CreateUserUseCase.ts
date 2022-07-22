@@ -1,10 +1,10 @@
-import { UserMap } from './UserMap'
-import { UserDTO } from './UserDTO'
-import { IUsersRepository } from '../../repositories/IUsersRepository'
-import { IHashProvider } from '../../providers/IhashProvider'
-import { ISendEmailUseCase } from '../send-email/ISendEmailUseCase'
+import UserMap from './UserMap'
+import UserDTO from './UserDTO'
+import IUsersRepository from '../../repositories/IUsersRepository'
+import IHashProvider from '../../providers/IhashProvider'
+import ISendEmailUseCase from '../send-email/ISendEmailUseCase'
 
-export class CreateUserUseCase {
+export default class CreateUserUseCase {
   private usersRepository: IUsersRepository
   private sendEmailUseCase: ISendEmailUseCase
   private hashProvider: IHashProvider

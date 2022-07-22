@@ -1,7 +1,7 @@
-import { UserMap } from '../../use-cases/create-user/UserMap'
-import { IUsersRepository } from '../IUsersRepository'
+import UserMap from '../../use-cases/create-user/UserMap'
+import IUsersRepository from '../IUsersRepository'
 
-export class UsersRepository implements IUsersRepository {
+export default class UsersRepository implements IUsersRepository {
   private model: any
 
   constructor (model: any) {

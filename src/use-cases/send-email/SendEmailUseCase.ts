@@ -1,8 +1,8 @@
-import { IHashProvider } from '../../providers/IhashProvider'
+import IHashProvider from '../../providers/IhashProvider'
 import { MailProvider } from '../../providers/implementations/MailProvider'
-import { ISendEmailUseCase } from './ISendEmailUseCase'
+import ISendEmailUseCase from './ISendEmailUseCase'
 
-export class SendEmailUseCase implements ISendEmailUseCase {
+export default class SendEmailUseCase implements ISendEmailUseCase {
   private mailProvider: MailProvider
   private hashProvider: IHashProvider
 
