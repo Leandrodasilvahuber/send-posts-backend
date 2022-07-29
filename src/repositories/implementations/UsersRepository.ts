@@ -1,4 +1,3 @@
-import UserMap from '../../use-cases/create-user/UserMap'
 import IUsersRepository from '../IUsersRepository'
 
 export default class UsersRepository implements IUsersRepository {
@@ -9,8 +8,7 @@ export default class UsersRepository implements IUsersRepository {
   }
 
   public async save (user: any): Promise<void> {
-    const data = UserMap.toPersistence(user)
-    await this.model.create(data)
+    await this.model.create(user)
   }
 
   public async getUserByEmail (email: string): Promise<any> {

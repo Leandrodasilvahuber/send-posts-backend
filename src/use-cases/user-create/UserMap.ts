@@ -3,7 +3,7 @@ import UserDTO from './UserDTO'
 
 export default class UserMap {
   public static toDomain (raw: any): User {
-    return new User(raw.id, raw.name, raw.email, raw.password)
+    return new User(raw.name, raw.email, raw.password)
   }
 
   public static toPersistence (user: User): any {

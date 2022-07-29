@@ -2,7 +2,7 @@ import UsersRepository from '../../repositories/implementations/UsersRepository'
 import CreateUserUseCase from './CreateUserUseCase'
 import CreateUserController from './CreateUserController'
 import DatabaseProvider from '../../providers/implementations/DatabaseProvider'
-import sendEmailUseCase from '../send-email/index'
+import sendEmailUseCase from '../email-send/index'
 import HashProvider from '../../providers/implementations/HashProvider'
 import CreateUserRequestRules from '../../request-rules/CreateUserRequestRules'
 

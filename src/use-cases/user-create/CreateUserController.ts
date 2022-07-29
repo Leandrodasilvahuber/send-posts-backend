@@ -3,6 +3,7 @@ import { Request, Response } from 'express'
 import { NextFunction } from 'express-serve-static-core'
 import CreateUserRequestRules from '../../request-rules/CreateUserRequestRules'
 import CreateUserUseCase from './CreateUserUseCase'
+import UserMap from './UserMap'
 
 export default class CreateUserController {
   constructor (
@@ -14,14 +15,15 @@ export default class CreateUserController {
     try {
       const { name, email, password } = request.body
 
-      this.createUserRequestRules.validate({ name, email, password })
+      if (await this.createUserRequestRules.execute({ name, email, password })) {
+        throw new Error('Invalid data')
+      }
 
-      const user = await this.createUserUseCase.execute({
-        name,
-        email,
-        password
-      })
-      return response.status(201).send(user)
+      const user = UserMap.toDomain({ name, email, password })
+
+      const userDTO = await this.createUserUseCase.execute(user)
+
+      return response.status(201).send(userDTO)
     } catch (err) {
       next(err)
     }

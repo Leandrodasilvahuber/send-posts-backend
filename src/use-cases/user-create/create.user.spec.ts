@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import HashProvider from '../../providers/implementations/HashProvider'
 import UsersRepository from '../../repositories/implementations/UsersRepository'
-import SendEmailUseCase from '../send-email/SendEmailUseCase'
+import SendEmailUseCase from '../email-send/SendEmailUseCase'
 import CreateUserUseCase from './CreateUserUseCase'
 import UserDTO from './UserDTO'
 
@@ -30,7 +30,6 @@ it('User successfully created', async () => {
 
   const userDTO = await createUserUseCase.execute(
     {
-      id: 1,
       name: 'test',
       email: 'test@test.com',
       password: 'password'
@@ -67,7 +66,11 @@ it('User already registered', async () => {
   )
 
   try {
-    await createUserUseCase.execute({ password: 'test', email: 'test@test.com' })
+    await createUserUseCase.execute({
+      password: 'test',
+      email: 'test@test.com',
+      name: ''
+    })
   } catch (error) {
     expect(error).toEqual(new Error('User already exists.'))
   }

@@ -1,7 +1,7 @@
 import userModel from '../../database/models/user'
-import IDatabaseProvider from '../IDatabaseProvider'
+import postModel from '../../database/models/post'
 
-export default class DatabaseProvider implements IDatabaseProvider {
+export default class DatabaseProvider {
   private connection: any
   private dialect: string = 'mysql'
 
@@ -38,6 +38,7 @@ export default class DatabaseProvider implements IDatabaseProvider {
   }
 
   private configModels () {
+    this.connection.define('Post', postModel)
     this.connection.define('User', userModel)
   }
 

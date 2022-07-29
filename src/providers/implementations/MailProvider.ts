@@ -6,6 +6,8 @@ export class MailProvider implements IMailProvider {
   private transporter: Mail
 
   constructor () {
+    require('dotenv').config()
+
     this.transporter = nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,
@@ -13,7 +15,11 @@ export class MailProvider implements IMailProvider {
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD
-      }
+      },
+      // tls: {
+      //   rejectUnauthorized: false
+      // },
+      debug: true
     })
   }
 

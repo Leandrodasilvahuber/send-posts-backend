@@ -1,4 +1,4 @@
-import UserDTO from '../use-cases/create-user/UserDTO'
+import UserDTO from '../use-cases/user-create/UserDTO'
 
 export default interface IUsersRepository {
     save(user: UserDTO): Promise<void>

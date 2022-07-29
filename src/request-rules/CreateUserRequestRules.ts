@@ -1,9 +1,12 @@
-import ValidationProvider from '../providers/implementations/ValidationProvider'
+import RequestRules from './RequestRule'
 
-export default class CreateUserRequestRules extends ValidationProvider {
-  public rules = {
-    name: 'required',
-    password: 'required',
-    email: 'required|email'
+export default class CreateUserRequestRules extends RequestRules {
+  constructor () {
+    super()
+    this.rules = {
+      name: 'required',
+      password: 'required',
+      email: 'required|email'
+    }
   }
 }

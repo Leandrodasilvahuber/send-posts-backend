@@ -1,16 +1,16 @@
 import IUsersRepository from '../../repositories/IUsersRepository'
-import JWTProvider from '../../providers/implementations/JWTProvider'
+import IJWTProvider from '../../providers/IJWTProvider'
 import IHashProvider from '../../providers/IhashProvider'
 
 export default class LoginUseCase {
   private usersRepository: IUsersRepository
   private hashProvider: IHashProvider
-  private jwtProvider: JWTProvider
+  private jwtProvider: IJWTProvider
 
   constructor (
     usersRepository: IUsersRepository,
     hashProvider: IHashProvider,
-    jwtProvider: JWTProvider
+    jwtProvider: IJWTProvider
   ) {
     this.usersRepository = usersRepository
     this.hashProvider = hashProvider
@@ -19,6 +19,7 @@ export default class LoginUseCase {
 
   async execute (data: any) {
     const hash = this.hashProvider.makesha256(data.password)
+
     const user = await this.usersRepository.getUserByEmail(data.email)
 
     if (!user || hash !== user.password) throw new Error('Login error.')
