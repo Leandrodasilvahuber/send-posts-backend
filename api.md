@@ -2,11 +2,11 @@
 
 # Leandro da Silva Huber - leandrohuber@yahoo.com
 # Resources:
-# user login
-# user create
-# post create
-# post delete
-# posts list
+- user login
+- user create
+- post create
+- post delete
+- posts list
 
 ## Login
 
