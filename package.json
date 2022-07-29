@@ -1,10 +1,10 @@
 {
-  "name": "aluminum-api",
+  "name": "profile-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsnd --respawn --inspect --transpile-only ./src/server.ts && cd ./src/database/ && npx sequelize-cli db:migrate",
+    "start": "cd ./src/database/ && npx sequelize-cli db:migrate && cd ../../ && tsnd --respawn --inspect --transpile-only ./src/server.ts",
     "test": "jest ./src"
   },
   "keywords": [],
