@@ -1,6 +1,8 @@
 # API example in Node
 
-# Leandro da Silva Huber - leandrohuber@yahoo.com
+# Contact
+Leandro da Silva Huber - leandrohuber@yahoo.com
+
 # Resources:
 - user login
 - user create
