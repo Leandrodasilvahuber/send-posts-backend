@@ -5,11 +5,13 @@ https://js-api-profile.herokuapp.com/
 Leandro da Silva Huber - leandrohuber@yahoo.com
 
 # Resources:
+```
 - user login
 - user create
 - post create
 - post delete
 - posts list
+```
 
 ## Login
 
