@@ -7,6 +7,8 @@ export default class PostsRepository implements IPostsRepository {
     this.model = model
   }
 
+  
+
   public async delete (post: any): Promise<void> {
     await this.model.destroy({
       where: post
