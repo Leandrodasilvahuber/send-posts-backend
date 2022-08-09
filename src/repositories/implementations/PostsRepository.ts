@@ -17,8 +17,8 @@ export default class PostsRepository implements IPostsRepository {
     await this.model.create(post)
   }
 
-  public async findByUserId (id: number):Promise<any> {
-    return await this.model.findAll(id)
+  public async findByUserId (userId: number):Promise<any> {
+    return await this.model.findAll({ where: { user_id: userId } })
   }
 
   public async findByIdAndUserId (post: any):Promise<any> {

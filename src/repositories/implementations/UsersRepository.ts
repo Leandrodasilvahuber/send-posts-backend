@@ -1,3 +1,4 @@
+/* eslint-disable object-shorthand */
 import IUsersRepository from '../IUsersRepository'
 
 export default class UsersRepository implements IUsersRepository {
@@ -12,6 +13,6 @@ export default class UsersRepository implements IUsersRepository {
   }
 
   public async getUserByEmail (email: string): Promise<any> {
-    return await this.model.findOne({ where: { email } })
+    return await this.model.findOne({ where: { email: email } })
   }
 }
