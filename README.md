@@ -1,5 +1,4 @@
-<p align="center"><a href="https://nodejs.org/" target="_blank"><img src="https://github.com/Leandrodasilvahuber/send-posts-backend/assets/45015902/3673a1c9-2a47-4256-8dd8-b2e6d021c3cf" width="400" alt="Laravel Logo"></a></p>
-
+<p align="center"><a href="https://nodejs.org/" target="_blank"><img src="https://github.com/Leandrodasilvahuber/send-posts-backend/assets/45015902/d9a98fac-36bc-48aa-9d74-ff0a9f1fc5e9" width="400" alt="Laravel Logo"></a></p>
 
 ## About project
 Requirements: 
