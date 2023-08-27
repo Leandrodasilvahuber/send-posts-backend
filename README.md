@@ -8,7 +8,7 @@ Back-end example built in Node, allows you to send posts and list them.
 * Mysql or MariaDB
   
 ## Start Project
-* configure conection database
+* configure database connection
 * create user in database
 * npm install
 * npm run start
